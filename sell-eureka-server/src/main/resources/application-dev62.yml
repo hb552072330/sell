@@ -2,17 +2,32 @@ server:
   port: 8762
 spring:
   application:
-    name: eureka2
+    name: eureka-server
+  profiles:
+    active: dev62
 eureka:
   client:
     #指向与本地实例相同的主机
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka,http://127.0.0.1:8763/eureka
-      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://peer1:8761/eureka,http://peer3:8763/eureka
+#    healthcheck:
+#      enabled: true
+    #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
     #注册中心的职责是维护服务实力，不需要去检索服务
-    fetch-registry: false
+    fetch-registry: true
     #该应用为注册中心，不需要注册自己
-    register-with-eureka: false
+    register-with-eureka: true
+  server:
+    # 关闭自我保护机制
+    enable-self-preservation: false
+    # 每隔10s扫描服务列表，移除失效服务，配置后日志刷新异常
+#    eviction-interval-timer-in-ms: 10
   instance:
-    instance-id: localhost
-    hostname: localhost
+    hostname: peer2
+    appname: server-eureka
+
+# 启动类参数 VM options  -Dspring.profiles.active=dev61
+#  注：
+#  确保集群中的所有服务中的 spring.application.name 或者 eureka.instance.appname 的属性值相同
+#  eureka.client.register-with-eureka 与 eureka.client.fetch-registry 均需要设置为 true，表示允许 eureka server 服务之间相互注册。
+#  设置 eureka.instance.hostname，eureka.client.defaultZone 中配置的注册地址别用 IP 使用 hostname特别注意第三点，因为此问题非常有可能出现 unavailable replicas (UI 后台显示我们的复本不可用)，如果你使用的是 IP，则有可能出现如下的问题（甚至你使用 localhost 也不行
