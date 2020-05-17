@@ -1,0 +1,20 @@
+package com.study.sell.product.utils;
+
+import com.study.sell.product.vo.ResultVO;
+
+/**
+ * @Author: zhanghongbing
+ * @Description:
+ * @Date: Create in 18:15 2020/5/17
+ * @Modified By:
+ */
+public class ResultVOUtils {
+
+    public static ResultVO success(Object o){
+        ResultVO resultVO = new ResultVO();
+        resultVO.setCode(0);
+        resultVO.setMessage("成功");
+        resultVO.setData(o);
+        return resultVO;
+    }
+}
