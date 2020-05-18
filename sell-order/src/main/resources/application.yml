@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: order
+  datasource:
+    druid:
+      #      driver: com.mysql.jdbc.Driver
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      username: root
+      password: root
+      url: jdbc:mysql://localhost:3306/spring_cloud_sell?useSSL=false&useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&allowMultiQueries=true
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+    instance-id: localhost
+server:
+  port: 8510
