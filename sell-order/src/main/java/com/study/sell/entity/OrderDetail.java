@@ -1,41 +1,42 @@
-package com.study.sell.product.entity;
+package com.study.sell.entity;
 
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Date;
 
-
+/**
+ * @Author: zhanghongbing
+ * @Description:
+ * @Date: Create in 23:38 2020/5/18
+ * @Modified By:
+ */
 @Data
 @Entity
-@Table(name="product_info")
-public class ProductInfo {
+public class OrderDetail {
+
     @Id
+    private String detailId;
+
+    /** 订单id */
+    private String orderId;
+
+    /** 商品id */
     private String productId;
 
     /** 商品名称 */
     private String productName;
 
-    /** 单价 */
+    /** 当前价格,单位分 */
     private BigDecimal productPrice;
 
-    /** 库存 */
-    private Integer productStock;
-
-    /** 描述 */
-    private String productDescription;
+    /** 数量 */
+    private Integer productQuantity;
 
     /** 小图 */
     private String productIcon;
-
-    /** 商品状态,0正常1下架 */
-    private Integer productStatus;
-
-    /** 类目编号 */
-    private Integer categoryType;
 
     /** 创建时间 */
     private Date createTime;
