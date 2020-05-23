@@ -41,7 +41,7 @@ public class ProductController {
      * 4、构造数据
      */
     @GetMapping("/list")
-    public ResultVO<ProductVO> list(){
+    public ResultVO<ProductVO> list() {
         List<ProductInfo> productInfoList = productService.findUpAll();
         List<Integer> categoryTypeList = productInfoList.stream().map(ProductInfo::getCategoryType).collect(Collectors.toList());
         List<ProductCategory> productCategoryList = productCategoryService.findByCategoryTypeIn(categoryTypeList);
@@ -52,7 +52,7 @@ public class ProductController {
             productVO.setCategoryType(category.getCategoryType());
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
             for (ProductInfo productInfo : productInfoList) {
-                if(productInfo.getCategoryType().equals(category.getCategoryType())){
+                if (productInfo.getCategoryType().equals(category.getCategoryType())) {
                     ProductInfoVO productInfoVO = new ProductInfoVO();
                     BeanUtils.copyProperties(productInfo, productInfoVO);
                     productInfoVOList.add(productInfoVO);

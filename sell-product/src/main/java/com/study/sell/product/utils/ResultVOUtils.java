@@ -10,7 +10,7 @@ import com.study.sell.product.vo.ResultVO;
  */
 public class ResultVOUtils {
 
-    public static ResultVO success(Object o){
+    public static ResultVO success(Object o) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(0);
         resultVO.setMessage("成功");

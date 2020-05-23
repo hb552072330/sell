@@ -21,6 +21,7 @@ class ProductServiceTest {
 
     @Autowired
     private ProductService productService;
+
     @Test
     void findUpAll() {
         List<ProductInfo> productInfoList = productService.findUpAll();

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ServerController {
 
     @GetMapping("/msg")
-    public String msg(){
+    public String msg() {
         return "this is a product message 2!";
     }
 }

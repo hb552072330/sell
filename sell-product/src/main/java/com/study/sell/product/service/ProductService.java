@@ -1,5 +1,6 @@
 package com.study.sell.product.service;
 
+import com.study.sell.product.dto.CarDTO;
 import com.study.sell.product.entity.ProductInfo;
 
 import java.util.List;
@@ -14,8 +15,23 @@ public interface ProductService {
 
     /**
      * 查询所有的上架商品
+     *
      * @return
      */
     List<ProductInfo> findUpAll();
 
+    /**
+     * 查询商品列表信息（给订单服务）
+     *
+     * @param productIdList
+     * @return
+     */
+    List<ProductInfo> findList(List<String> productIdList);
+
+    /**
+     * 扣库存
+     *
+     * @param carDTOList
+     */
+    void decreaseStock(List<CarDTO> carDTOList);
 }

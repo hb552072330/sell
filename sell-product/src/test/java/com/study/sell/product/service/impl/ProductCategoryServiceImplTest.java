@@ -23,6 +23,7 @@ class ProductCategoryServiceImplTest {
 
     @Autowired
     private ProductCategoryService productCategoryService;
+
     @Test
     void findByCategoryTypeIn() {
         List<ProductCategory> productCategoryList = productCategoryService.findByCategoryTypeIn(Arrays.asList(11, 12));

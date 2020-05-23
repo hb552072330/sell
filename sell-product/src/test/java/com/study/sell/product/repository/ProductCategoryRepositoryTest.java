@@ -26,6 +26,6 @@ class ProductCategoryRepositoryTest {
     @Test
     void findByCategoryType() {
         List<ProductCategory> categoryList = productCategoryRepository.findByCategoryTypeIn(Arrays.asList(11, 22));
-        Assert.isTrue(categoryList.size()>0, "SUCCESS");
+        Assert.isTrue(categoryList.size() > 0, "SUCCESS");
     }
 }

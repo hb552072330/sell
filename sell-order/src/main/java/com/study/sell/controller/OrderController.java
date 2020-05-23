@@ -1,5 +1,10 @@
 package com.study.sell.controller;
 
+import com.study.sell.client.ProductClient;
+import com.study.sell.dto.OrderDTO;
+import com.study.sell.repository.OrderDetailRepository;
+import com.study.sell.repository.OrderMasterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OrderController {
 
+
+
     /**
      * 1、参数校验
      * 2、查询商品信息（调用商品服务）
@@ -18,7 +25,7 @@ public class OrderController {
      * 4、扣库存（调用商品服务）
      * 5、订单入库
      */
-    public void create(){
+    public void create(OrderDTO orderDTO){
 
     }
 }
