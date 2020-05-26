@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.study.sell.product.client", "com.study.sell.client"})
 public class SellOrderApplication {
 
     public static void main(String[] args) {

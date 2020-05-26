@@ -1,0 +1,28 @@
+server:
+  port: 8500
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+#      defaultZone: http://peer1:8761/eureka,http://peer2:8762/eureka,http://peer3:8763/eureka
+#  instance:
+#    hostname: localhost
+#    instance-id: localhost
+spring:
+  application:
+    name: product
+  datasource:
+    druid:
+      #      driver: com.mysql.jdbc.Driver
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      username: root
+      password: root
+      url: jdbc:mysql://localhost:3306/spring_cloud_sell?useSSL=false&useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&allowMultiQueries=true
+    driver-class-name: com.mysql.jdbc.Driver
+    #    username: root
+    #    password: root
+    #    url: jdbc:mysql://localhost:3306/spring_cloud_sell?useSSL=false&useUnicode=true&characterEncoding=utf8
+    jpa:
+      show-sql: true
+
+#启动类设置端 VMoptions -Dserver.port=8500
