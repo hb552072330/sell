@@ -1,16 +1,17 @@
 spring:
   application:
     name: config
-  cloud:
-    config:
-      server:
-        git:
-          username: username
-          password: password
-          uri: address
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          username: username #git账号
+#          password: password #git密码
+#          uri: address #远程git地址
+#          basedir: /data/ #文件
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://admin:admin@localhost:8761/eureka/
 server:
   port: 8555

@@ -1,0 +1,41 @@
+#对称和非对称加密的配置
+encrypt:
+  key: 加密密码
+  #非对称加密配置
+  key-store:
+    location: classpath:/server.jks
+    #秘钥库口令（密码）
+    password: letmein
+    alias: mytestkey
+    secret: changeme
+#首先替换JDK */jdk/jre/lib/security/local_policy.jar和 US_export_policy.jar包，JCE包下载地址：http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+#加密：curl $CONFIG_URL/encrypt -d 想要加密的内容
+#解密：curl $CONFIG_URL/decrypt -d 想要解密的密文
+#
+#用JDK自定 keytool.exe生成rsa非对称加密
+# keytool -genkeypair -alias mytestkey -keyalg RSA -dname "CN=Web Server,OU=Unit,O=Organization,L=City,S=State,C=US" -keypass changeme -keystore server.jks -storepass letmein
+# keytool -help 和 keytool -genkeypair -help
+#-alias <alias>                  要处理的条目的别名
+  # -keyalg <keyalg>                密钥算法名称
+  # -keysize <keysize>              密钥位大小
+  # -sigalg <sigalg>                签名算法名称
+  # -destalias <destalias>          目标别名
+  # -dname <dname>                  唯一判别名
+  # -startdate <startdate>          证书有效期开始日期/时间
+  # -ext <value>                    X.509 扩展
+  # -validity <valDays>             有效天数
+  # -keypass <arg>                  密钥口令
+  # -keystore <keystore>            密钥库名称
+  # -storepass <arg>                密钥库口令
+  # -storetype <storetype>          密钥库类型
+  # -providername <providername>    提供方名称
+  # -providerclass <providerclass>  提供方类名
+  # -providerarg <arg>              提供方参数
+  # -providerpath <pathlist>        提供方类路径
+  # -v                              详细输出
+  # -protected                      通过受保护的机制的口令
+#encrypt.* 务必存放在bootstrap.* 中，否则加解密特性无法生效！！
+  #作者：大目
+  #链接：https://www.imooc.com/article/283208
+  #来源：慕课网
+  #本文原创发布于慕课网 ，转载请注明出处，谢谢合作
