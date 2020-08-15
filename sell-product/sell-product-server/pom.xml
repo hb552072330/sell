@@ -25,6 +25,10 @@
             <artifactId>sell-product-common</artifactId>
             <version>${sell-product-common.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
