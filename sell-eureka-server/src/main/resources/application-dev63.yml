@@ -8,7 +8,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://peer1:8761/eureka,http://peer2:8762/eureka
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer1:8761/eureka,http://${spring.security.user.name}:${spring.security.user.password}@peer2:8762/eureka
     #注册中心的职责是维护服务实力，不需要去检索服务
     fetch-registry: true
     #该应用为注册中心，不需要注册自己

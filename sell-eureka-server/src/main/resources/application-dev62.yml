@@ -9,7 +9,7 @@ eureka:
   client:
     #指向与本地实例相同的主机
     service-url:
-      defaultZone: http://peer1:8761/eureka,http://peer3:8763/eureka
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer1:8761/eureka,http://${spring.security.user.name}:${spring.security.user.password}@peer3:8763/eureka
 #    healthcheck:
 #      enabled: true
     #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
