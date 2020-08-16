@@ -1,4 +1,7 @@
 eureka:
+  instance:
+    prefer-ip-address: true
+#    instance-id: product
   client:
     service-url:
       defaultZone: http://admin:admin@localhost:8761/eureka
@@ -28,7 +31,14 @@ spring:
       discovery:
         service-id: CONFIG
         enabled: true
-      profile: product-dev
+      profile: dev
+      label: master
+    bus:
+      id: ${spring.application.name}:${spring.cloud.config.profile}:${random.value}
   application:
     name: product
+management:
+  endpoint:
+    bus-refresh:
+      enabled: true
 #启动类设置端 VMoptions -Dserver.port=8500
